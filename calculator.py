@@ -1,5 +1,5 @@
 import tkinter as tk
-
+theme = 0
 calculate = ""
 def calculation(symbol):
     global calculate
@@ -19,6 +19,70 @@ def evaluate():
     except:
         clear()
         text.insert(1.0,"error")
+def apply_theme():
+    global theme
+    light_mode = {
+        'bg':'white',
+        'fg' : 'black' , 
+        'entry_bg' : '#eee',
+        'entry_fg' : 'black',
+        'btn_bg' : '#ddd' ,
+        'btn_fg' : 'black'
+    }
+    dark_mode ={
+        'bg':'#333',
+        'fg' : 'white' , 
+        'entry_bg' : '#555',
+        'entry_fg' : 'white',
+        'btn_bg' : '#444' ,
+        'btn_fg' : 'white'
+    }
+    if theme == 0:
+        theme +=1
+        root.config(bg = dark_mode['bg'])
+        btn_1.config(bg=dark_mode['entry_bg'],fg = dark_mode['entry_fg'])
+        btn_2.config(bg=dark_mode['entry_bg'],fg = dark_mode['entry_fg'])
+        btn_3.config(bg=dark_mode['entry_bg'],fg = dark_mode['entry_fg'])
+        btn_4.config(bg=dark_mode['entry_bg'],fg = dark_mode['entry_fg'])
+        btn_5.config(bg=dark_mode['entry_bg'],fg = dark_mode['entry_fg'])
+        btn_6.config(bg=dark_mode['entry_bg'],fg = dark_mode['entry_fg'])
+        btn_7.config(bg=dark_mode['entry_bg'],fg = dark_mode['entry_fg'])
+        btn_8.config(bg=dark_mode['entry_bg'],fg = dark_mode['entry_fg'])
+        btn_9.config(bg=dark_mode['entry_bg'],fg = dark_mode['entry_fg'])
+        btn_0.config(bg=dark_mode['entry_bg'],fg = dark_mode['entry_fg'])
+        btn_plus.config(bg=dark_mode['entry_bg'],fg = dark_mode['entry_fg'])
+        btn_min.config(bg=dark_mode['entry_bg'],fg = dark_mode['entry_fg'])
+        btn_divide.config(bg=dark_mode['entry_bg'],fg = dark_mode['entry_fg'])
+        btn_multiply.config(bg=dark_mode['entry_bg'],fg = dark_mode['entry_fg'])
+        btn_open.config(bg=dark_mode['entry_bg'],fg = dark_mode['entry_fg'])
+        btn_close.config(bg=dark_mode['entry_bg'],fg = dark_mode['entry_fg'])
+        btn_ans.config(bg=dark_mode['entry_bg'],fg = dark_mode['entry_fg'])
+        btn_clear.config(bg=dark_mode['entry_bg'],fg = dark_mode['entry_fg'])
+        btn_switch.config(bg=dark_mode['entry_bg'],fg = dark_mode['entry_fg'])
+        text.config(bg=dark_mode['entry_bg'],fg = dark_mode['entry_fg'])
+    elif theme == 1:
+        theme -= 1
+        root.config(bg = light_mode['bg'])
+        btn_1.config(bg=light_mode['entry_bg'],fg = light_mode['entry_fg'])
+        btn_2.config(bg=light_mode['entry_bg'],fg = light_mode['entry_fg'])
+        btn_3.config(bg=light_mode['entry_bg'],fg = light_mode['entry_fg'])
+        btn_4.config(bg=light_mode['entry_bg'],fg = light_mode['entry_fg'])
+        btn_5.config(bg=light_mode['entry_bg'],fg = light_mode['entry_fg'])
+        btn_6.config(bg=light_mode['entry_bg'],fg = light_mode['entry_fg'])
+        btn_7.config(bg=light_mode['entry_bg'],fg = light_mode['entry_fg'])
+        btn_8.config(bg=light_mode['entry_bg'],fg = light_mode['entry_fg'])
+        btn_9.config(bg=light_mode['entry_bg'],fg = light_mode['entry_fg'])
+        btn_0.config(bg=light_mode['entry_bg'],fg = light_mode['entry_fg'])
+        btn_plus.config(bg=light_mode['entry_bg'],fg = light_mode['entry_fg'])
+        btn_min.config(bg=light_mode['entry_bg'],fg = light_mode['entry_fg'])
+        btn_divide.config(bg=light_mode['entry_bg'],fg = light_mode['entry_fg'])
+        btn_multiply.config(bg=light_mode['entry_bg'],fg = light_mode['entry_fg'])
+        btn_open.config(bg=light_mode['entry_bg'],fg = light_mode['entry_fg'])
+        btn_close.config(bg=light_mode['entry_bg'],fg = light_mode['entry_fg'])
+        btn_ans.config(bg=light_mode['entry_bg'],fg = light_mode['entry_fg'])
+        btn_clear.config(bg=light_mode['entry_bg'],fg = light_mode['entry_fg'])
+        btn_switch.config(bg=light_mode['entry_bg'],fg = light_mode['entry_fg'])
+        text.config(bg=light_mode['entry_bg'],fg = light_mode['entry_fg'])
 
 root  = tk.Tk()
 root.geometry("300x320")
@@ -44,7 +108,7 @@ btn_open = tk.Button(root,text="(",command=lambda:calculation(")"),width = 5,fon
 btn_close = tk.Button(root,text=")",command=lambda:calculation(")"),width = 5,font=("Arial",14))
 btn_ans = tk.Button(root,text="=",command=lambda:evaluate(),width = 11,font=("Arial",14))
 btn_clear = tk.Button(root,text="CLEAR",command=lambda:clear(),width = 11,font=("Arial",14))
-btn_switch = tk.Button(root,text="🔀",command=lambda:clear(),width = 24,font=("Arial",14))
+btn_switch = tk.Button(root,text="🔀",command=lambda:apply_theme(),width = 24,font=("Arial",14))
 
 btn_1.grid(row=2,column=1)
 btn_2.grid(row=2,column=2)
